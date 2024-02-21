@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'building_level.dart';
+import 'door.dart';
 
 Logger logger = Logger('MainView');
 
@@ -46,6 +47,7 @@ class _MainViewState extends State<MainView> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text('This is the Main View of Energy Starv!'),
+                Door(),
                 MyButton(
                   onPressed: () => addLevel(),
                   child: Text('Add a level'),
