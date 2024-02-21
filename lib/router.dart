@@ -2,6 +2,9 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:ui';
+
+import 'package:basic/starv_components/main_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -25,6 +28,17 @@ final router = GoRouter(
       builder: (context, state) => const MainMenuScreen(key: Key('main menu')),
       routes: [
         GoRoute(
+          name: 'starv',
+          path: 'starv',
+          pageBuilder: (context, state) => buildMyTransition<void>(
+            key: ValueKey('starv'),
+            color: context.watch<Palette>().backgroundLevelSelection,
+            child: MainView(
+              key: Key('starv main view'),
+            ),
+          ),
+        ),
+        GoRoute(
             path: 'play',
             pageBuilder: (context, state) => buildMyTransition<void>(
                   key: ValueKey('play'),
@@ -38,8 +52,7 @@ final router = GoRouter(
                 path: 'session/:level',
                 pageBuilder: (context, state) {
                   final levelNumber = int.parse(state.pathParameters['level']!);
-                  final level =
-                      gameLevels.singleWhere((e) => e.number == levelNumber);
+                  final level = gameLevels.singleWhere((e) => e.number == levelNumber);
                   return buildMyTransition<void>(
                     key: ValueKey('level'),
                     color: context.watch<Palette>().backgroundPlaySession,
@@ -79,8 +92,7 @@ final router = GoRouter(
             ]),
         GoRoute(
           path: 'settings',
-          builder: (context, state) =>
-              const SettingsScreen(key: Key('settings')),
+          builder: (context, state) => const SettingsScreen(key: Key('settings')),
         ),
       ],
     ),
