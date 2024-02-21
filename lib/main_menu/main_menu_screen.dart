@@ -55,6 +55,11 @@ class MainMenuScreen extends StatelessWidget {
               child: const Text('Settings'),
             ),
             _gap,
+            MyButton(
+              onPressed: () => GoRouter.of(context).push('/starv'),
+              child: const Text('Starv'),
+            ),
+            _gap,
             Padding(
               padding: const EdgeInsets.only(top: 32),
               child: ValueListenableBuilder<bool>(
