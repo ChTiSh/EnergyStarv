@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'building_level.dart';
+import 'door.dart';
 
 Logger logger = Logger('MainView');
 
@@ -42,7 +43,7 @@ class _MainViewState extends State<MainView> {
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text('This is the Main View of Energy Starv!'),
@@ -52,11 +53,16 @@ class _MainViewState extends State<MainView> {
                 ),
                 Expanded(
                   child: ListView.builder(
+                    reverse: true,
                     itemCount: widget.levels.length,
                     itemBuilder: (context, index) {
                       return BuildingLevel();
                     },
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Door(),
                 ),
               ],
             ),
