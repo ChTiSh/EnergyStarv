@@ -43,22 +43,26 @@ class _MainViewState extends State<MainView> {
           child: Align(
             alignment: Alignment.bottomCenter,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
                 Text('This is the Main View of Energy Starv!'),
-                Door(),
                 MyButton(
                   onPressed: () => addLevel(),
                   child: Text('Add a level'),
                 ),
                 Expanded(
                   child: ListView.builder(
+                    reverse: true,
                     itemCount: widget.levels.length,
                     itemBuilder: (context, index) {
                       return BuildingLevel();
                     },
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Door(),
                 ),
               ],
             ),
