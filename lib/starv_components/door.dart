@@ -13,24 +13,34 @@ class _DoorState extends State<Door> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 220.0,
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            opacityLevel =
-                opacityLevel == 1.0 ? 0.0 : 1.0; // Toggle opacity level
-          });
-        },
-        child: Column(
-          children: <Widget>[
-            AnimatedOpacity(
-              opacity: opacityLevel,
-              duration: Duration(seconds: 3),
-              child: Image.asset(
-                  'lib/images/door.png'), // Using Image.asset to load the door image
-            ),
-          ],
+    return Align(
+      alignment: Alignment.bottomCenter, // Align at the bottom center
+      child: SizedBox(
+        width: 220.0,
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              opacityLevel =
+                  opacityLevel == 1.0 ? 0.0 : 1.0; // Toggle opacity level
+            });
+          },
+          child: Column(
+            children: <Widget>[
+              AnimatedOpacity(
+                opacity: opacityLevel,
+                duration: Duration(seconds: 3),
+                child: Container(
+                  width: 220,
+                  height: 200,
+                  color: Colors.blueGrey,
+                  child: Image.asset(
+                    'lib/images/door.png',
+                    alignment: Alignment.bottomCenter,
+                  ), // Using Image.asset to load the door image
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
