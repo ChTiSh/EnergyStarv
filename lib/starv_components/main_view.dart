@@ -39,35 +39,36 @@ class _MainViewState extends State<MainView> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Expanded(
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Text('This is the Main View of Energy Starv!'),
-                MyButton(
-                  onPressed: () => addLevel(),
-                  child: Text('Add a level'),
+        //child: Expanded(
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text('This is the Main View of Energy Starv!'),
+              MyButton(
+                onPressed: () => addLevel(),
+                child: Text('Add a level'),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  reverse: true,
+                  itemCount: widget.levels.length,
+                  itemBuilder: (context, index) {
+                    return BuildingLevel();
+                  },
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    reverse: true,
-                    itemCount: widget.levels.length,
-                    itemBuilder: (context, index) {
-                      return BuildingLevel();
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
-                  child: Door(),
-                ),
-              ],
-            ),
+              ),
+              Door(),
+              // Padding(
+              //   padding: const EdgeInsets.only(bottom: 20.0),
+              //   child: Door(),
+              // ),
+            ],
           ),
         ),
+        //),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => GoRouter.of(context).pop(),
