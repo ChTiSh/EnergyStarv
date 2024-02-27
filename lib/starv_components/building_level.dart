@@ -2,7 +2,13 @@ import 'package:basic/starv_components/window.dart';
 import 'package:flutter/material.dart';
 
 class BuildingLevel extends StatefulWidget {
-  const BuildingLevel({super.key});
+  BuildingLevel({super.key, required lightsOn, required lightSwitch});
+
+  bool lightsOn = false;
+  bool lightSwitch() {
+    lightsOn = !lightsOn;
+    return lightsOn;
+  }
 
   @override
   State<BuildingLevel> createState() => _BuildingLevelState();
@@ -22,11 +28,20 @@ class _BuildingLevelState extends State<BuildingLevel> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Window(),
+                Window(
+                  lightsOn: widget.lightsOn,
+                  lightSwitch: widget.lightSwitch(),
+                ),
                 SizedBox(width: 10),
-                Window(),
+                Window(
+                  lightsOn: widget.lightsOn,
+                  lightSwitch: widget.lightSwitch(),
+                ),
                 SizedBox(width: 10),
-                Window(),
+                Window(
+                  lightsOn: widget.lightsOn,
+                  lightSwitch: widget.lightSwitch(),
+                ),
               ],
             ),
           ),

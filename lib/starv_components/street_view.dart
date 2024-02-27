@@ -61,10 +61,6 @@ class _MainViewState extends State<MainView> {
                 ),
               ),
               Door(),
-              // Padding(
-              //   padding: const EdgeInsets.only(bottom: 20.0),
-              //   child: Door(),
-              // ),
             ],
           ),
         ),

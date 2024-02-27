@@ -31,7 +31,7 @@ class _DoorState extends State<Door> {
                 duration: Duration(seconds: 3),
                 child: Container(
                   width: 220,
-                  height: 200,
+                  height: 160,
                   color: Colors.blueGrey,
                   child: Image.asset(
                     'lib/images/door.png',

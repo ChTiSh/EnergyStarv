@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
 class Window extends StatefulWidget {
-  Window({super.key});
+  Window({super.key, required lightsOn, required lightSwitch});
+
+  bool lightsOn = false;
+  bool lightSwitch() {
+    lightsOn = !lightsOn;
+    return lightsOn;
+  }
 
   @override
   State<Window> createState() => _WindowState();
-
-  bool lightsOn = false;
 }
 
 class _WindowState extends State<Window> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => setState(() => widget.lightsOn = !widget.lightsOn),
+      onTap: widget.lightSwitch,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Container(

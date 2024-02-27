@@ -4,7 +4,7 @@
 
 import 'dart:ui';
 
-import 'package:basic/starv_components/main_view.dart';
+import 'package:basic/starv_components/street_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
